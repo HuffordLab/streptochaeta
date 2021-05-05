@@ -1,0 +1,8 @@
+/work/triffid/arnstrm/Streptochaeta/09_mikado/b-strawberry/dataset1/strawberry-dataset1_r2_Aligned.sortedByCoord.out.gtf	Sw1	False
+/work/triffid/arnstrm/Streptochaeta/09_mikado/b-strawberry/dataset2/strawberry-dataset2_r2_Aligned.sortedByCoord.out.gtf	Sw2	True
+/work/triffid/arnstrm/Streptochaeta/09_mikado/c-cufflinks/dataset1/dataset1_r2_Aligned.sortedByCoord.out/transcripts.gtf	Cf1	False
+/work/triffid/arnstrm/Streptochaeta/09_mikado/c-cufflinks/dataset2/dataset2_r2_Aligned.sortedByCoord.out/transcripts.gtf	Cf2	True
+/work/triffid/arnstrm/Streptochaeta/09_mikado/e-class2/dataset1/dataset1_r2_Aligned.sortedByCoord.out_class.gtf	Cl1	False
+/work/triffid/arnstrm/Streptochaeta/09_mikado/e-class2/dataset2/dataset2_r2_Aligned.sortedByCoord.out_class.gtf	Cl2	True
+/work/triffid/arnstrm/Streptochaeta/09_mikado/d-stringtie/dataset2/dataset2_r2_Aligned.sortedByCoord.out_stringtie.gtf	St1	False
+/work/triffid/arnstrm/Streptochaeta/09_mikado/d-stringtie/dataset1/dataset1_r2_Aligned.sortedByCoord.out_stringtie.gtf	St2	True

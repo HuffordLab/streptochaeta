@@ -1,0 +1,13 @@
+#!/bin/bash
+#PBS -l nodes=1:ppn=16
+#PBS -l walltime=24:00:00
+#PBS -N blast
+#PBS -o ${PBS_JOBNAME}.o${PBS_JOBID} -e ${PBS_JOBNAME}.e${PBS_JOBID}
+#PBS -m ae -M arnstrm@gmail.com
+cd $PBS_O_WORKDIR
+ulimit -s unlimited
+chmod g+rw ${PBS_JOBNAME}.[eo]${PBS_JOBID}
+module use /shared/software/GIF/modules/
+module load ncbi-blast
+./runBLASTn.sh potential_contaminats_strep_masurca_final.fa
+ssh condo "qstat -f ${PBS_JOBID} | head"

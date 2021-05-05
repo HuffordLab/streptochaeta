@@ -1,0 +1,129 @@
+
+seed = 0
+
+[pick]
+# Parameters related to the Mikado pick stage.
+# - alternative_splicing: Parameters related to which AS events to consider as valid during picking.
+# - chimera_split: parameters related to splitting of transcripts in the presence of multiple ORFs
+# - files: input and output files
+# - run_options: generic options related to the run, eg number of processors to use.
+# - scoring_file: a scoring file for the analysis. Default: plant.yaml.
+scoring_file = "/work/triffid/arnstrm/Streptochaeta/09_mikado/f-mikado/plants.yaml"
+
+[pick.chimera_split]
+# Parameters related to the splitting of transcripts in the presence of
+# two or more ORFs. Parameters:
+# - execute: whether to split multi-ORF transcripts at all. Boolean.
+# - blast_check: whether to use BLAST information to take a decision. See blast_params for details.
+# - blast_params: Parameters related to which BLAST data we want to analyse.
+blast_check = true
+execute = true
+
+[pick.chimera_split.blast_params]
+# Parameters for the BLAST check prior to splitting.
+# - evalue: Minimum evalue for the whole hit. Default: 1e-6
+# - leniency: One of 'STRINGENT', 'LENIENT', 'PERMISSIVE'. Default: STRINGENT
+# - max_target_seqs: maximum number of hits to consider. Default: 3
+leniency = "PERMISSIVE"
+
+[pick.alternative_splicing]
+# Parameters related to alternative splicing reporting.
+# - report: whether to report at all or not the AS events.
+# - only_confirmed_introns: bring back AS events only when their introns are either
+#  present in the primary transcript or in the set of confirmed introns.
+# - pad: boolean switch. If true, Mikado will pad all the transcript in a gene so that their ends are the same
+report = true
+only_confirmed_introns = true
+pad = true
+
+[pick.run_options]
+# Generic run options.
+# - intron_range: A range where most of the introns (99%) should fall into. Transcripts with too many
+#  introns larger or smaller than what is defined in this range will be penalised
+#  in the scoring. Default: [60, 900]
+# - shm: boolean flag. If set and the DB is sqlite, it will be copied onto the /dev/shm faux partition
+# - single_thread: boolean flag. If set, multithreading will be disabled - useful for profiling and debugging.
+single_thread = false
+
+[pick.clustering]
+# Parameters related to the clustering of transcripts into loci.
+# - flank: maximum distance for transcripts to be clustered within the same superlocus.
+
+[pick.fragments]
+# Parameters related to the handling of fragments.
+# - remove: boolean. Whether to remove fragments or leave them, properly tagged.
+
+[pick.files]
+# Input and output files for Mikado pick.
+# - gff: input GTF/GFF3 file. Default: mikado_prepared.gtf
+# - loci_out: output GFF3 file from Mikado pick. Default: mikado.loci.gff3
+# - subloci_out: optional GFF file with the intermediate subloci. Default: no output
+# - monoloci_out: optional GFF file with the intermediate monoloci. Default: no output
+# - log: log file for this step.
+input = "mikado_prepared.gtf"
+subloci_out = ""
+monoloci_out = ""
+
+[serialise]
+# Options related to serialisation
+# - max_regression: if the ORF lacks a valid start site, this percentage indicates how far
+#   along the sequence Mikado should look for a good start site. Eg. with a value of 0.1,
+#   on a 300bp sequence with an open ORF Mikado would look for an alternative in-frame start codon
+#   in the first 30 bps (10% of the cDNA).
+max_regression = 0.2
+
+[serialise.files]
+transcripts = "mikado_prepared.fasta"
+junctions = ["portcullis_filtered.pass.junctions.bed"]
+
+[prepare]
+# Options related to the input data preparation.
+# - procs: Number of processes to use.
+# - strand_specific: if set to True, transcripts will be assumed to be in the correct orientation, no strand flipping or removal
+# - strip_cds: Boolean. It indicates whether to remove the CDS from the predictions during preparation.
+strand_specific = false
+
+[prepare.files]
+# Options related to the input and output files.
+# - out: output GTF file
+# - out_fasta: output transcript FASTA file
+# - gff: array of input predictions for this step.
+# - labels: labels to be associated with the input GFFs. Default: None.
+# - reference: these files are treated as reference-like, ie, these transcripts will never get discarded
+#   during the preparation step.
+out = "mikado_prepared.gtf"
+out_fasta = "mikado_prepared.fasta"
+gff = ["/work/triffid/arnstrm/Streptochaeta/09_mikado/b-strawberry/dataset1/strawberry-SRR3233339_r2_Aligned.sortedByCoord.out.gtf", "/work/triffid/arnstrm/Streptochaeta/09_mikado/b-strawberry/dataset2/strawberry-combined_round-2Aligned.sortedByCoord.out.gtf", "/work/triffid/arnstrm/Streptochaeta/09_mikado/c-cufflinks/dataset1/SRR3233339_r2_Aligned.sortedByCoord.out/transcripts.gtf", "/work/triffid/arnstrm/Streptochaeta/09_mikado/c-cufflinks/dataset2/combined_round-2Aligned.sortedByCoord.out/transcripts.gtf", "/work/triffid/arnstrm/Streptochaeta/09_mikado/e-class2/dataset1/SRR3233339_r2_Aligned.sortedByCoord.out_class.gtf", "/work/triffid/arnstrm/Streptochaeta/09_mikado/e-class2/dataset2/combined_round-2Aligned.sortedByCoord.out_class.gtf", "/work/triffid/arnstrm/Streptochaeta/09_mikado/d-stringtie/dataset2/combined_round-2Aligned.sortedByCoord.out_stringtie.gtf", "/work/triffid/arnstrm/Streptochaeta/09_mikado/d-stringtie/dataset1/SRR3233339_r2_Aligned.sortedByCoord.out_stringtie.gtf"]
+output_dir = "."
+log = "prepare.log"
+labels = ["Sw1", "Sw2", "Cf1", "Cf2", "Cl1", "Cl2", "St1", "St2"]
+strand_specific_assemblies = ["/work/triffid/arnstrm/Streptochaeta/09_mikado/b-strawberry/dataset2/strawberry-combined_round-2Aligned.sortedByCoord.out.gtf", "/work/triffid/arnstrm/Streptochaeta/09_mikado/c-cufflinks/dataset2/combined_round-2Aligned.sortedByCoord.out/transcripts.gtf", "/work/triffid/arnstrm/Streptochaeta/09_mikado/e-class2/dataset2/combined_round-2Aligned.sortedByCoord.out_class.gtf", "/work/triffid/arnstrm/Streptochaeta/09_mikado/d-stringtie/dataset1/SRR3233339_r2_Aligned.sortedByCoord.out_stringtie.gtf"]
+reference = [false, false, false, false, false, false, false, false]
+keep_redundant = [true, true, true, true, true, true, true, true]
+
+[prepare.files.source_score]
+
+# Configuration file for Mikado. Please note that absent values, e.g. if a field is deleted, will be imputed by the default values for the program.
+# Sections:
+# - log_settings: settings related to the verbosity of logs.
+# - db_settings: Database settings, for Mikado serialise and pick.
+# - reference: Settings related to the genome reference.
+# - prepare: settings related to the Mikado prepare stage
+# - serialise: settings related to the Mikado serialise stage
+# - pick: settings related to the Mikado pick stage
+# - multiprocessing_method: which method (fork, spawn, forkserver) Mikado should use for multiprocessing.
+
+[log_settings]
+# Settings related to the logs. Keys:
+# - log_level: verbosity. Default: INFO. In decreasing order: 'DEBUG', 'INFO', 'WARNING', 'ERROR', 'CRITICAL'
+
+[db_settings]
+# Settings related to DB connection. Parameters:
+# db: the DB to connect to. Required. Default: mikado.db
+# dbtype: Type of DB to use. Choices: sqlite, postgresql, mysql. Default: sqlite.
+dbtype = "sqlite"
+db = "/work/triffid/arnstrm/Streptochaeta/09_mikado/f-mikado/mikado.db"
+
+[reference]
+genome = "Streptochaeta_BioNanoRedundans_scaffolds_V1.fasta"
+
