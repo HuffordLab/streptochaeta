@@ -1,0 +1,15 @@
+# BUSCO version is: 3.0.2
+# The lineage dataset is: liliopsida_odb10 (Creation date: 2017-12-01, number of species: 18, number of BUSCOs: 3278)
+# To reproduce this run: python /work/LAS/mhufford-lab/arnstrm/miniconda/envs/busco/bin/run_BUSCO.py -i Streptochaeta_BioNanoRedundans_scaffolds_V1.fasta -o Streptochaeta_BioNanoRedundans_scaffolds_V1 -l /work/LAS/mhufford-lab/arnstrm/PanAnd/1_data/busco_profiles/liliopsida_odb10/ -m genome -c 36 -t /scratch/arnstrm/3019233/ -sp maize
+#
+# Summarized benchmarking in BUSCO notation for file Streptochaeta_BioNanoRedundans_scaffolds_V1.fasta
+# BUSCO was run in mode: genome
+
+        C:91.8%[S:84.4%,D:7.4%],F:3.4%,M:4.8%,n:3278
+
+        3010    Complete BUSCOs (C)
+        2767    Complete and single-copy BUSCOs (S)
+        243     Complete and duplicated BUSCOs (D)
+        110     Fragmented BUSCOs (F)
+        158     Missing BUSCOs (M)
+        3278    Total BUSCO groups searched
