@@ -149,7 +149,7 @@ mikado util grep --genes to-keep.txt augustus.hints.gff3 > braker-og-ps-exp-filt
 
 
 
-## Filtering Direct-Evidence
+## IV Filtering Direct-Evidence
 
 
 ### 1. TE containing genes
@@ -183,4 +183,53 @@ Performing actual filtering:
 awk '$4>=10' gene-level-counts.tsv |cut -f 1 | grep -v ^Geneid > with-expression.ids
 grep -Fw -f TE.mikado.ids with-expression.ids > mikado-to-keep.ids
 mikado util grep --genes mikado-to-keep.ids mikado-coding.gff3 > mikado-coding-expression-filtered.gff3
+```
+
+
+## V Merge Direct-Evidence with _ab initio_ gene models
+
+### Run Mikado compare
+
+```bash
+BR=braker-og-ps-exp-filtered.gff3
+DI=mikado-coding-expression-filtered.gff3
+mikado compare -r $DI -p $BR -o mikado-braker-compared
+cut -f 3 mikado-braker-compared.tmap |grep -v "ccode" |sort |uniq -c |awk '{print $2"\t"$1}' > ccode-counts.txt
+cut -f 3 mikado-braker-compared.tmap |grep -v "ccode" |sort |uniq > ccodes.txt
+tmap="mikado-braker-compared.tmap"
+```
+
+### Create ccodes files (flag ids for removal)
+
+   - ccode to remove from direct evidence: [`remove-evidence.txt`](assets/remove-evidence.txt)
+   - ccode to remove from ab initio: [`remove-braker.txt`](assets/remove-braker.txt)
+
+### Generate list of ids to remove
+
+For evidence
+
+```bash
+while read line; do
+  awk -v x=${line} '$3==x {print $1"\t"$2}' $tmap;
+done<remove-evidence.txt > evidence-ids-to-remove.txt
+```
+
+For Braker
+
+```bash
+while read line; do
+  awk -v x=${line} '$3==x {print $4"\t"$5}' $tmap;
+done<remove-braker.txt > braker-ids-to-remove.txt
+```
+
+### Perform removal
+
+```bash
+mikado util grep -v evidence-ids-to-remove.txt $DI  > DI_clean.gff3
+mikado util grep -v braker-ids-to-remove.txt $BR > BR_clean.gff3
+```
+
+### Merge
+```bash
+agat_sp_merge_annotations.pl --gff BR_clean.gff3 --gff DI_clean.gff3 --out BIND-merged-final.gff3
 ```
