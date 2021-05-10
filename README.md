@@ -7,3 +7,4 @@
 2. [Annotations](annotation/README.md)
 3. [Synteny](synteny/README.md)
 4. [Phylogenetic Analyses](phylogenetic-analyses/README.md)
+5. [sRNA analyses](small-RNA-analyses/README.md)
