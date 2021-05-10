@@ -2,18 +2,13 @@
 
 ## Data QC
 
-### 1. FastQC summary:
+### FastQC summary:
 
 ```bash
 for file in *.fastq.gz; do
   fastqc --threads 16 $file
 done
 ```
-### 2. Kmer profile
-
-Genomescope was used for generating the Kmer profile
-
-
 
 ## Genome assembly
 
@@ -52,4 +47,3 @@ For contamination screening Blobtools was used.
   1. short reads were mapped to the assembly using the script [`runBWAmem.sh`](runBWAmem.sh).
   2. reads were BLAST searched against NCBI refseq database using [`runMegablast.sh`](runMegablast.sh)
   3. `blobtools` was run using the above outputs and the genome assembly with the script [`blobtools.sh`](blobtools.sh)
-  
