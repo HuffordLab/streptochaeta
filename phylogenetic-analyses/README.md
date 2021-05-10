@@ -1,4 +1,4 @@
-# Phylogentic analyses
+# Phylogenetic analyses
 
 Scripts used are:
 
