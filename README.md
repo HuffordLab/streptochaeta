@@ -44,6 +44,9 @@ The genome assembly and annotations are also available under the same BioProject
 1. [Genome Assembly]()
 2. [Annotations]()
 
+### Other datasets
+
+The shared [Box folder](https://iastate.box.com/v/streptochaeta) contains assembly metrics and other related data about the genome and annotations.
 
 ## Contacts
 
