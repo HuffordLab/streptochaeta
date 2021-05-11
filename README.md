@@ -24,7 +24,7 @@ All data is publicly available on NCBI ([PRJNA343128](https://www.ncbi.nlm.nih.g
 2. RNA-seq data used for annotation and DE (single-end):
       - anther 3.0 mm (rep1 and re2): [SRR12490853](https://trace.ncbi.nlm.nih.gov/Traces/sra/?run=SRR12490853), [SRR12490852](https://trace.ncbi.nlm.nih.gov/Traces/sra/?run=SRR12490852)
       - anther 1.5 mm (rep1 and rep2): [SRR4249671](https://trace.ncbi.nlm.nih.gov/Traces/sra/?run=SRR4249671), [SRR12490854](https://trace.ncbi.nlm.nih.gov/Traces/sra/?run=SRR12490854)
-3. Other RNA-seq data used for annotation (paired-end):
+3. External RNA-seq data used for annotation (paired-end):
       - Young Leaf: [SRR3233339](https://www.ncbi.nlm.nih.gov/biosample/SAMN04515355)
 4. miRNA-seq datasets
       - 4.0 mm Anther, [SRR12490849](https://trace.ncbi.nlm.nih.gov/Traces/sra?run=SRR12490849)
@@ -50,10 +50,10 @@ The shared [Box folder](https://iastate.box.com/v/streptochaeta) contains assemb
 
 ## Contacts
 
-- Project/collaboration related questions: Matt Hufford, Toby Kellogg, Blake Meyers, Lynn Clark
-- Assembly/annotation scripts and issues: Arun Seetharam
-- Phylogenetic scripts and issues: Yunqing Yu
-- PARE/sRNA/miRNA related questions and issues: Sebastien Belanger
+- Project/collaboration related questions: _Matt Hufford, Toby Kellogg, Blake Meyers, Lynn Clark_
+- Assembly, annotation, datasets, general queries regarding scripts and workflows: _Arun Seetharam_
+- Phylogenetic methods and related scripts/issues: _Yunqing Yu_
+- PARE/sRNA/miRNA related questions and issues: _Sébastien Belanger_
 
 ## Publication
 
