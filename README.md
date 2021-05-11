@@ -54,4 +54,6 @@ The genome assembly and annotations are also available under the same BioProject
 
 ## Publication
 
-Soon to come!
+(Soon to come!)
+
+Arun S. Seetharam<sup>+</sup>, Yunqing Yu<sup>+</sup>, Sébastien Belanger, Lynn G. Clark, Blake C. Meyers, Elizabeth A. Kellogg<sup>*</sup>, Matthew B. Hufford<sup>*</sup>, The _Streptochaeta_ genome and the evolution of the grasses, _in preparation_.
