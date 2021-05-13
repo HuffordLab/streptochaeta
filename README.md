@@ -39,14 +39,15 @@ All data is publicly available on NCBI ([PRJNA343128](https://www.ncbi.nlm.nih.g
       - Anther PARE, [SRR12490860](https://trace.ncbi.nlm.nih.gov/Traces/sra?run=SRR12490860)
 
 ### Processed datasets
-The genome assembly and annotations are also available under the same BioProject and can be accessed using the links below:
+The genome assembly and annotations are also available under the same BioProject and can be accessed using the links below (not active yet):
 
 1. [Genome Assembly]()
 2. [Annotations]()
 
-### Other datasets
+### Other Locations
 
-The shared [Box folder](https://iastate.box.com/v/streptochaeta) contains assembly metrics and other related data about the genome and annotations.
+1. The shared [Box folder](https://iastate.box.com/v/Streptochaeta-v1-2021-05-13) contains assembly, annotations and related files.
+2. These files are also available in CyVerse Data Commons, at this [location](https://datacommons.cyverse.org/browse/iplant/home/aseetharam/Streptochaeta_v1_publication_release_2021-05-13)
 
 ## Contacts
 
