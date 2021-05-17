@@ -68,8 +68,6 @@ stringtie \
 done
 
 # run portcullis:
-
-#!/bin/bash
 source /work/LAS/mhufford-lab/shared_dir/minconda/20181213/etc/profile.d/conda.sh
 conda activate portcullis
 genome=Streptochaeta_BioNanoRedundans_scaffolds_V1.fasta
