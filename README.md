@@ -60,4 +60,9 @@ The genome assembly and annotations are also available under the same BioProject
 
 If you use the genome or annotations or scripts from this repository in your research, please cite this publication:
 
-Arun S. Seetharam<sup>+</sup>, Yunqing Yu<sup>+</sup>, Sébastien Belanger, Lynn G. Clark, Blake C. Meyers, Elizabeth A. Kellogg<sup>\*</sup>, Matthew B. Hufford<sup>\*</sup>, The _Streptochaeta_ genome and the evolution of the grasses, _in preparation_.
+Arun Seetharam<sup>†</sup>, Yunqing Yu<sup>†</sup>, Sébastien Belanger, Lynn G. Clark, Blake C. Meyers, Elizabeth A. Kellogg<sup>\*</sup>, Matthew B. Hufford<sup>\*</sup>.
+The _Streptochaeta_ genome and the evolution of the grasses.
+_Frontiers in Plant Science_, vol. 12, p2165, 2021.
+<a href="https://doi.org/10.3389/fpls.2021.710383"><img src="https://img.shields.io/badge/-Open_Access-blue?style=flat&amp;logo=Open-Access" /></a>
+<a href="https://github.com/HuffordLab/streptochaeta"><img src="https://img.shields.io/badge/-GitHub-black?style=flat&amp;logo=github" /></a></p>
+
